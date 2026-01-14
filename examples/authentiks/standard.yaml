@@ -1,0 +1,18 @@
+apiVersion: helm.hops.ops.com.ai/v1alpha1
+kind: Authentik
+metadata:
+  name: authentik
+  namespace: example-env
+spec:
+  clusterName: example-cluster
+  labels:
+    team: platform
+    environment: production
+  providerConfigRef:
+    name: example-cluster
+    kind: ProviderConfig
+  values:
+    server:
+      replicas: 2
+    worker:
+      replicas: 2
