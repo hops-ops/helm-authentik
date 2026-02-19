@@ -24,13 +24,9 @@ spec:
     {{- if $a.overrideAllValues }}
     values:
       {{- toYaml $a.overrideAllValues | nindent 6 }}
-    {{- else }}
+    {{- else if $a.values }}
     values:
-      fullnameOverride: authentik
-      nameOverride: authentik
-      {{- if $a.values }}
       {{- toYaml $a.values | nindent 6 }}
-      {{- end }}
     {{- end }}
   rollbackLimit: 3
   providerConfigRef:
